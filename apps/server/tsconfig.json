@@ -1,0 +1,10 @@
+{
+	"compilerOptions": {
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"noEmit": true,
+		"types": ["bun"]
+	},
+	"extends": "@repo/typescript-config/base",
+	"include": ["src/**/*", "__tests__/**/*"]
+}
