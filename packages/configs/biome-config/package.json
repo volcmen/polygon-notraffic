@@ -1,0 +1,13 @@
+{
+	"devDependencies": {
+		"@biomejs/biome": "2.4.14"
+	},
+	"exports": {
+		"./base": "./base.json",
+		"./react": "./react.json"
+	},
+	"name": "@repo/biome-config",
+	"private": true,
+	"type": "module",
+	"version": "1.0.0"
+}
