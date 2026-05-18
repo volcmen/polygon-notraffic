@@ -1,0 +1,52 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      args:
+        NEXT_PUBLIC_POLYGON_TRANSPORT: api
+        POLYGON_API_ORIGIN: http://server:3001
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./.env
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_POLYGON_TRANSPORT=api
+      - POLYGON_API_ORIGIN=http://server:3001
+    depends_on:
+      server:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - polygon-notraffic
+
+  server:
+    build:
+      context: .
+      dockerfile: apps/server/Dockerfile
+    ports:
+      - "3001:3001"
+    volumes:
+      - sqlite_db:/data
+    env_file:
+      - ./.env
+    environment:
+      - NODE_ENV=production
+      - SERVER_PORT=3001
+      - SQLITE_DB_PATH=/data/polygons.sqlite
+    healthcheck:
+      test: ["CMD", "./healthcheck"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - polygon-notraffic
+
+volumes:
+  sqlite_db:
+
+networks:
+  polygon-notraffic:
