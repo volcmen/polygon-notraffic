@@ -1,0 +1,2 @@
+[test]
+preload = ["@repo/db/test-setup"]
