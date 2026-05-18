@@ -1,0 +1,7 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.4.14/schema.json",
+	"extends": ["@repo/biome-config/react"],
+	"files": {
+		"includes": ["**", "!dist"]
+	}
+}
