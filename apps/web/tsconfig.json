@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"paths": {
+			"@/*": ["./src/*"],
+			"@repo/ui/*": ["../../packages/ui/src/*"]
+		},
+		"types": ["bun"],
+		"plugins": [{ "name": "next" }]
+	},
+	"exclude": ["node_modules"],
+	"extends": "@repo/typescript-config/nextjs",
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
+}

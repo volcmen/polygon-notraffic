@@ -1,0 +1,23 @@
+{
+	"$schema": "https://ui.shadcn.com/schema.json",
+	"aliases": {
+		"components": "@/components",
+		"hooks": "@/hooks",
+		"lib": "@/lib",
+		"ui": "@repo/ui/components",
+		"utils": "@repo/ui/lib/utils"
+	},
+	"iconLibrary": "lucide",
+	"menuAccent": "subtle",
+	"menuColor": "default",
+	"rsc": true,
+	"rtl": false,
+	"style": "radix-nova",
+	"tailwind": {
+		"baseColor": "neutral",
+		"config": "",
+		"css": "@repo/ui/globals.css",
+		"cssVariables": true
+	},
+	"tsx": true
+}

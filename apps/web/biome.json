@@ -1,0 +1,15 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.4.14/schema.json",
+	"extends": ["@repo/biome-config/react"],
+	"files": {
+		"includes": ["**", "!.next"]
+	},
+	"linter": {
+		"domains": {
+			"next": "all",
+			"project": "all",
+			"react": "all",
+			"test": "recommended"
+		}
+	}
+}
