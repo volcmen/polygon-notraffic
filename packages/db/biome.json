@@ -1,0 +1,14 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.4.14/schema.json",
+	"extends": ["@repo/biome-config/base"],
+	"files": {
+		"includes": ["**", "!drizzle"]
+	},
+	"linter": {
+		"domains": {
+			"drizzle": "all",
+			"project": "all",
+			"test": "recommended"
+		}
+	}
+}
