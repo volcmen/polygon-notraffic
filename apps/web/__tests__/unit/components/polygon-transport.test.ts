@@ -125,9 +125,7 @@ describe("polygon transport", () => {
 	});
 
 	it("handles successful delete with 204 response", async () => {
-		globalThis.fetch = mock(() =>
-			Promise.resolve(new Response(null, { status: 204 })),
-		) as unknown as typeof fetch;
+		globalThis.fetch = mock(() => Promise.resolve(new Response(null, { status: 204 }))) as unknown as typeof fetch;
 		const client = createPolygonClient(actions, "api");
 
 		await expect(client.delete(42)).resolves.toBeUndefined();

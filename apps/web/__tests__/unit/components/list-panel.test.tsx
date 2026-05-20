@@ -146,9 +146,36 @@ describe("ListPanel", () => {
 
 	it("handles multiple polygons being deleted simultaneously", () => {
 		const polygons: Polygon[] = [
-			{ id: 1, name: "A", color: "#fff", points: [[0, 0], [1, 0], [1, 1]] },
-			{ id: 2, name: "B", color: "#fff", points: [[0, 0], [1, 0], [1, 1]] },
-			{ id: 3, name: "C", color: "#fff", points: [[0, 0], [1, 0], [1, 1]] },
+			{
+				id: 1,
+				name: "A",
+				color: "#fff",
+				points: [
+					[0, 0],
+					[1, 0],
+					[1, 1],
+				],
+			},
+			{
+				id: 2,
+				name: "B",
+				color: "#fff",
+				points: [
+					[0, 0],
+					[1, 0],
+					[1, 1],
+				],
+			},
+			{
+				id: 3,
+				name: "C",
+				color: "#fff",
+				points: [
+					[0, 0],
+					[1, 0],
+					[1, 1],
+				],
+			},
 		];
 		const deletingIds = new Set([1, 3]);
 		render(<PolygonListPanel {...defaultProps} polygons={polygons} deletingIds={deletingIds} />);

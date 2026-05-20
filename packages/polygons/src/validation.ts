@@ -1,8 +1,8 @@
-import type { CreatePolygonInput, Point } from './types.ts';
 import { env } from '@repo/env';
+import type { CreatePolygonInput, Point } from './types.ts';
 
-const IMAGE_HEIGHT = env.IMAGE_HEIGHT;
-const IMAGE_WIDTH = env.IMAGE_WIDTH;
+// biome-ignore lint/nursery/useExplicitType: type inferred from env
+const { IMAGE_HEIGHT, IMAGE_WIDTH } = env;
 const MAX_POLYGON_NAME_LENGTH = 120;
 const MAX_POLYGON_POINTS = 200;
 const MIN_POLYGON_POINTS = 3;

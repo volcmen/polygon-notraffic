@@ -210,7 +210,16 @@ describe("usePolygons", () => {
 
 	it("clears error on successful create after a previous failure", async () => {
 		let shouldFail = true;
-		const newPolygon = { id: 1, name: "Retry", color: "#2563eb", points: [[0, 0], [1, 0], [1, 1]] };
+		const newPolygon: Polygon = {
+			id: 1,
+			name: "Retry",
+			color: "#2563eb",
+			points: [
+				[0, 0],
+				[1, 0],
+				[1, 1],
+			],
+		};
 		const client = createMockClient({
 			list: mock(async () => []),
 			create: mock(async () => {
@@ -229,13 +238,27 @@ describe("usePolygons", () => {
 
 		let success = false;
 		await act(async () => {
-			success = await result.current.createPolygon({ name: "Retry", points: [[0, 0], [1, 0], [1, 1]] });
+			success = await result.current.createPolygon({
+				name: "Retry",
+				points: [
+					[0, 0],
+					[1, 0],
+					[1, 1],
+				],
+			});
 		});
 		expect(success).toBe(false);
 		expect(result.current.error).toBe("first failure");
 
 		await act(async () => {
-			success = await result.current.createPolygon({ name: "Retry", points: [[0, 0], [1, 0], [1, 1]] });
+			success = await result.current.createPolygon({
+				name: "Retry",
+				points: [
+					[0, 0],
+					[1, 0],
+					[1, 1],
+				],
+			});
 		});
 		expect(success).toBe(true);
 		expect(result.current.error).toBeNull();

@@ -201,18 +201,17 @@ describe("usePolygonCanvas", () => {
 
 	it("handleMouseLeave clears hovered polygon", () => {
 		const mockOnAddDraftPoint = mock((_point: Point) => undefined);
-		const polygons: Polygon[] = [
-			{
-				id: 1,
-				name: "Test",
-				color: "#2563eb",
-				points: [
-					[0, 0],
-					[100, 0],
-					[100, 100],
-				],
-			},
-		];
+		const testPolygon: Polygon = {
+			id: 1,
+			name: "Test",
+			color: "#2563eb",
+			points: [
+				[0, 0],
+				[100, 0],
+				[100, 100],
+			],
+		};
+		const polygons: Polygon[] = [testPolygon];
 		const { result } = renderHook(() =>
 			usePolygonCanvas({
 				draftColor: "#2563eb",
@@ -229,14 +228,24 @@ describe("usePolygonCanvas", () => {
 		Object.defineProperty(canvas, "clientWidth", { value: 1920 });
 		Object.defineProperty(canvas, "clientHeight", { value: 1080 });
 		Object.defineProperty(canvas, "getBoundingClientRect", {
-			value: () => ({ left: 0, top: 0, width: 1920, height: 1080, bottom: 1080, right: 1920, x: 0, y: 0, toJSON: () => ({}) }),
+			value: () => ({
+				left: 0,
+				top: 0,
+				width: 1920,
+				height: 1080,
+				bottom: 1080,
+				right: 1920,
+				x: 0,
+				y: 0,
+				toJSON: () => ({}),
+			}),
 		});
 		result.current.canvasRef.current = canvas;
 
 		act(() => {
 			result.current.handleMouseMove({ clientX: 50, clientY: 50 } as React.MouseEvent<HTMLCanvasElement>);
 		});
-		expect(result.current.hoveredPolygon).toEqual(polygons[0]);
+		expect(result.current.hoveredPolygon).toEqual(testPolygon);
 
 		act(() => {
 			result.current.handleMouseLeave();
@@ -285,7 +294,17 @@ describe("usePolygonCanvas", () => {
 		Object.defineProperty(canvas, "clientWidth", { value: 1920 });
 		Object.defineProperty(canvas, "clientHeight", { value: 1080 });
 		Object.defineProperty(canvas, "getBoundingClientRect", {
-			value: () => ({ left: 0, top: 0, width: 1920, height: 1080, bottom: 1080, right: 1920, x: 0, y: 0, toJSON: () => ({}) }),
+			value: () => ({
+				left: 0,
+				top: 0,
+				width: 1920,
+				height: 1080,
+				bottom: 1080,
+				right: 1920,
+				x: 0,
+				y: 0,
+				toJSON: () => ({}),
+			}),
 		});
 		result.current.canvasRef.current = canvas;
 
@@ -325,7 +344,17 @@ describe("usePolygonCanvas", () => {
 		Object.defineProperty(canvas, "clientWidth", { value: 1920 });
 		Object.defineProperty(canvas, "clientHeight", { value: 1080 });
 		Object.defineProperty(canvas, "getBoundingClientRect", {
-			value: () => ({ left: 0, top: 0, width: 1920, height: 1080, bottom: 1080, right: 1920, x: 0, y: 0, toJSON: () => ({}) }),
+			value: () => ({
+				left: 0,
+				top: 0,
+				width: 1920,
+				height: 1080,
+				bottom: 1080,
+				right: 1920,
+				x: 0,
+				y: 0,
+				toJSON: () => ({}),
+			}),
 		});
 		result.current.canvasRef.current = canvas;
 

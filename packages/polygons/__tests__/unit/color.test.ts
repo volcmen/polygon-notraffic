@@ -39,7 +39,7 @@ describe('polygon colors', () => {
 	});
 
 	it('produces a valid hex color for a very long seed', () => {
-		const longSeed = 'a'.repeat(10000);
+		const longSeed = 'a'.repeat(10_000);
 		const color = selectPolygonColor(longSeed);
 
 		expect(color).toMatch(/^#[0-9a-f]{6}$/);

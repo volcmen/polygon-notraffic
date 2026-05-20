@@ -5,6 +5,8 @@ import { createApp } from '../../src/index.ts';
 
 const TEST_DELAY_MS = 100;
 
+// biome-ignore lint/nursery/useExplicitReturnType: Elysia return type is complex
+// biome-ignore lint/nursery/useExplicitType: type inferred from createApp
 const createDelayedTestApp = async () => {
 	await setupGlobalTestDatabase();
 	return createApp({
